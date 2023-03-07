@@ -1,6 +1,4 @@
-# compulsory name of workflow
 name: My Workflow
-# manual workflow
 on: workflow_dispatch
 
 jobs:
@@ -8,6 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: My first step
-        run: echo "hello first step"
+        run: |
+          echo "first multi line command"
+          echo "second multi line command"
       - name: My second step
         run: echo "hello second step"
