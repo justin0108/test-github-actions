@@ -1,8 +1,14 @@
 name: My Workflow
 on: push
 
+# available in all jobs
+env:
+  MY_GLOBAL_ENV: my-global-env
+
 jobs:
   my-job-name:
+    env:
+      MY_JOB_ENV: my-job-env
     runs-on: ubuntu-latest
     steps:
       - name: My first step
@@ -15,4 +21,9 @@ jobs:
         uses: actions/checkout@v3
       - name: List files
         run: ls
-        
+      - name: Check env
+        run: |
+          echo $MY_GLOBAL_ENV
+          echo $MY_JOB_ENV
+          echo ${{ env.MY_GLOBAL_ENV }}
+          echo ${{ env.MY_JOB_ENV }}
