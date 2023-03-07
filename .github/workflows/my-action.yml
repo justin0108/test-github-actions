@@ -1,5 +1,5 @@
 name: My Workflow
-on: workflow_dispatch
+on: push
 
 jobs:
   my-job-name:
@@ -11,3 +11,8 @@ jobs:
           echo "second multi line command"
       - name: My second step
         run: echo "hello second step"
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: List files
+        run: ls
+        
